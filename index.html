@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nagole Login</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function checkLogin() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      if (username === "user1" && password === "pass1") {
+        // After login, show CCTV link page
+        window.location.href = "cctvlink.html";
+      } else {
+        alert("Wrong login. Try again.");
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h2>Login for Nagole CCTV</h2>
+    <form onsubmit="event.preventDefault(); checkLogin();">
+      <input type="text" id="username" placeholder="Username" class="input-field"><br>
+      <input type="password" id="password" placeholder="Password" class="input-field"><br>
+      <input type="submit" value="Login" class="btn">
+    </form>
+  </div>
+</body>
+</html>

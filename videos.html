@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Stream Grid</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0d1117;
+      color: #f0f0f0;
+      padding: 20px;
+      margin: 0;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2em;
+      color: #58a6ff;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .video-item {
+      background: #161b22;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: transform 0.2s ease;
+    }
+    .video-item:hover {
+      transform: scale(1.02);
+    }
+    .cam-title {
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 1.2em;
+      color: #58a6ff;
+    }
+    video {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      display: block;
+      background: black;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Live Streams</h2>
+
+  <div class="video-grid">
+    <div class="video-item">
+      <div class="cam-title">Cam1</div>
+      <video controls autoplay muted playsinline>
+        <source src="https://guidance-inspiration-phillips-amp.trycloudflare.com/mycamera4/index.m3u8" type="application/x-mpegURL">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="video-item">
+      <div class="cam-title">Cam2</div>
+      <video controls autoplay muted playsinline>
+        <source src="https://guidance-inspiration-phillips-amp.trycloudflare.com/mycamera4/index.m3u8" type="application/x-mpegURL">
+      </video>
+    </div>
+    <div class="video-item">
+      <div class="cam-title">Cam3</div>
+      <video controls autoplay muted playsinline>
+        <source src="https://guidance-inspiration-phillips-amp.trycloudflare.com/mycamera4/index.m3u8" type="application/x-mpegURL">
+      </video>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('load', () => {
+      const videos = document.querySelectorAll('video');
+      videos.forEach(v => {
+        v.play().catch(error => {
+          console.log("Autoplay was prevented. Users must interact first.");
+        });
+      });
+    });
+  </script>
+</body>
+</html>
